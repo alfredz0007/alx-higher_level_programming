@@ -10,13 +10,14 @@
 void print_python_bytes(PyObject *p)
 {
 	char *string;
-	long int size, i, limit;
+        long int size, i, limit;
 
 	printf("[.] bytes object info\n");
 	if (!PyBytes_Check(p))
 	{
 		printf("  [ERROR] Invalid Bytes Object\n");
-		return;
+
+         	return;
 	}
 
 	size = ((PyVarObject *)(p))->ob_size;
@@ -40,7 +41,6 @@ void print_python_bytes(PyObject *p)
 
 	printf("\n");
 }
-
 /**
  * print_python_list - Prints list information
  *
@@ -65,7 +65,7 @@ void print_python_list(PyObject *p)
 		obj = ((PyListObject *)p)->ob_item[i];
 		printf("Element %ld: %s\n", i, ((obj)->ob_type)->tp_name);
 		if (PyBytes_Check(obj))
-			print_python_bytes(obj);
+         		print_python_bytes(obj);
 	}
-
+}
 
